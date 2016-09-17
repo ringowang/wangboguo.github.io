@@ -284,7 +284,7 @@ a {
 }
 a:hover {
   color: #222;
-  border-bottom-color: #222;
+  border-bottom-color: #0684bd;
 }
 ul {
   list-style: none;
@@ -1472,7 +1472,7 @@ pre .javascript .function {
 .site-author-name {
   margin: 0;
   text-align: center;
-  color: #222;
+  color: #0684bd;
   font-weight: 600;
 }
 .site-description {
@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8ce050;
+  background: #f19339;
 }
 .links-of-blogroll {
   font-size: 13px;
