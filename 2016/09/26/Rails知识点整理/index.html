@@ -1,0 +1,716 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Rails," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="RESTful什麼是REST呢？表象化狀態轉變Representational State Transfer，簡稱REST.
+1. 網路上的所有事物都被將被抽象成資源 (resource)2. 每個資源對應一個唯一的 resource identifier3. 通過通用的介面 (generic connector interface) 對資源進行操作4. 對資源的各種操作不會改變 resource">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rails知识点整理">
+<meta property="og:url" content="http://yoursite.com/2016/09/26/Rails知识点整理/index.html">
+<meta property="og:site_name" content="爱学习的林檎君">
+<meta property="og:description" content="RESTful什麼是REST呢？表象化狀態轉變Representational State Transfer，簡稱REST.
+1. 網路上的所有事物都被將被抽象成資源 (resource)2. 每個資源對應一個唯一的 resource identifier3. 通過通用的介面 (generic connector interface) 對資源進行操作4. 對資源的各種操作不會改變 resource">
+<meta property="og:updated_time" content="2016-09-25T16:13:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rails知识点整理">
+<meta name="twitter:description" content="RESTful什麼是REST呢？表象化狀態轉變Representational State Transfer，簡稱REST.
+1. 網路上的所有事物都被將被抽象成資源 (resource)2. 每個資源對應一個唯一的 resource identifier3. 通過通用的介面 (generic connector interface) 對資源進行操作4. 對資源的各種操作不會改變 resource">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/26/Rails知识点整理/"/>
+
+  <title> Rails知识点整理 | 爱学习的林檎君 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">爱学习的林檎君</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Rails知识点整理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-26T01:05:49+09:00" content="2016-09-26">
+              2016-09-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Rails/" itemprop="url" rel="index">
+                    <span itemprop="name">Rails</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/26/Rails知识点整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/Rails知识点整理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">本文阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="RESTful"><a href="#RESTful" class="headerlink" title="RESTful"></a>RESTful</h2><p>什麼是REST呢？表象化狀態轉變Representational State Transfer，簡稱REST.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">1. 網路上的所有事物都被將被抽象成資源 (resource)</div><div class="line">2. 每個資源對應一個唯一的 resource identifier</div><div class="line">3. 通過通用的介面 (generic connector interface) 對資源進行操作</div><div class="line">4. 對資源的各種操作不會改變 resource idetifier</div><div class="line">5. 所有的操作都是無態 (stateless) 的</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>REST有主要有兩個核心精神：1. 使用Resource來當做識別的資源，也就是使用一個URL網址來代表一個Resource 2. 同一個Resource則可以有不同的Representations格式變化。</p>
+<p>RESTful帶給Rails最大的好處是：它幫助我們用一種比較標準化的方式來命名跟組織Controllers和Actions。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">1. 維護性：解決了程式碼上的風格不一</div><div class="line">2. 介面統一：Action as Resource</div><div class="line">3. 開發速度：透過 CRUD 七個 action + HTTP 四個 verb + 表單 Helper 與 URL Helper 達到高速開發</div></pre></td></tr></table></figure>
+<p>CRUD: 增加(Create)、读取(Retrieve)(重新得到数据)、更新(Update)和删除(Delete)</p>
+<p>HTTP 四個 verb &amp; CRUD 七個 action: </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">GET(index,show,new,edit)</div><div class="line">POST(create)</div><div class="line">PUT(update)</div><div class="line">DELETE(destroy)</div></pre></td></tr></table></figure>
+<p>Rails用這套慣例來大大簡化了路由設定。那程式該怎麼寫呢？我們在config/routes.rb加入以下一行程式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">resources :events</div></pre></td></tr></table></figure>
+<p>如此就會自動建立四個命名路由(named routes)，搭配四個HTTP動詞，對應到七個Actions。它的實際作用，就如同以下的routes.rb設定：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">get    &apos;/events&apos;          =&gt; &quot;events#index&quot;,   :as =&gt; &quot;events&quot;</div><div class="line">post   &apos;/events&apos;          =&gt; &quot;events#create&quot;,  :as =&gt; &quot;events&quot;</div><div class="line">get    &apos;/events/:id&apos;      =&gt; &quot;events#show&quot;,    :as =&gt; &quot;event&quot;</div><div class="line">patch  &apos;/events/:id&apos;      =&gt; &quot;events#update&quot;,  :as =&gt; &quot;event&quot;</div><div class="line">put    &apos;/events/:id&apos;      =&gt; &quot;events#update&quot;,  :as =&gt; &quot;event&quot;</div><div class="line">delete &apos;/events/:id&apos;      =&gt; &quot;events#destroy&quot;, :as =&gt; &quot;event&quot;</div><div class="line">get    &apos;/events/new&apos;      =&gt; &quot;events#new&quot;,     :as =&gt; &quot;new_event&quot;</div><div class="line">get    &apos;/events/:id/edit&apos; =&gt; &quot;events#edit&quot;,    :as =&gt; &quot;edit_event&quot;</div></pre></td></tr></table></figure>
+<h2 id="为什么要使用Migration资料库迁移机制来定义资料库结构-Schema"><a href="#为什么要使用Migration资料库迁移机制来定义资料库结构-Schema" class="headerlink" title="为什么要使用Migration资料库迁移机制来定义资料库结构(Schema)?"></a>为什么要使用Migration资料库迁移机制来定义资料库结构(Schema)?</h2><ol>
+<li><em>讓資料庫的修改也可以納入版本控制系統，所有的變更都透過撰寫Migration檔案執行</em></li>
+<li><em>方便應用程式更新升級，例如讓軟體從第三版更新到第五版，資料庫更新只需要執行rake db:migrate</em></li>
+<li><em>跨資料庫通用，不需修改程式就可以用在SQLite3、MySQL、Postgres等不同資料庫</em></li>
+</ol>
+<h2 id="用MVC有什么好处"><a href="#用MVC有什么好处" class="headerlink" title="用MVC有什么好处"></a>用MVC有什么好处</h2><blockquote>
+<p>定义:M(Model)V(View)C(Controller),是软件开发的一种架构模式，目的是将不同的行为切开来，让代码撰写与维护上可以比较有规则。Rails开发是严格遵循MVC架构的。</p>
+</blockquote>
+<ol>
+<li>界面与后台分离</li>
+<li>维护相对简单,只要对应修正model就可以了</li>
+<li>测试友好性(如果你需要写单元测试的话,MVC会很不错的)</li>
+<li>可定制性(在MVC中基本上所有的东西都是可以定制的,对于某些定制性要求比较高的工作可以轻易胜任)</li>
+<li>代码清晰(CodeBehind虽说分离的不错,但是还是有很多人直接在CodeBehind里面写SQL的)</li>
+<li>轻量级,对于大型项目来说,可以大大提高加载速度(没有控件,没有视图状态,没有控件状态,页面加载速度快)</li>
+<li>开源</li>
+<li>强大的路由系统</li>
+<li>对HTML代码和HTTP的严密控制力,MVC知道产生整洁、符合标准的标记的重要,它内置的HTML helper方法的输出完全符合标准</li>
+</ol>
+<h2 id="資料驗證-Validation"><a href="#資料驗證-Validation" class="headerlink" title="資料驗證(Validation)"></a>資料驗證(Validation)</h2><p>Model里面加入 validates_presence_of :name</p>
+<h2 id="版型-Layout"><a href="#版型-Layout" class="headerlink" title="版型(Layout)"></a>版型(Layout)</h2><p>Layout可以用來包裹樣板，讓不同樣板共用相同的HTML開頭和結尾部分。當Rails要顯示一個樣板給瀏覽器時，它會將樣板的HTML放到Layout的HTML之中。預設的Layout檔案是app/views/layouts/application.html.erb，<em>其中yield就是會被替換成樣板的地方</em>。所有的樣版預設都會套這個Layout。</p>
+<p>好處是可以將網站的版型固定，只在需要出現內容的地方用 yield 引進來就可以了。</p>
+<h2 id="Helder"><a href="#Helder" class="headerlink" title="Helder"></a>Helder</h2><blockquote>
+<p>Helper 是一些使用在 Rails 的 View 當中，用 Ruby 產生/整理 HTML code 的一些小方法。通常被放在 app/helpers 下。</p>
+</blockquote>
+<p>使用 Helper 封裝程式碼可以帶給專案以下一些優點：</p>
+<ol>
+<li>Don’t repeat yourself（DRY）程式碼不重複</li>
+<li>Good Encapsulation好的封裝性</li>
+<li>提供 view 模板良好的組織</li>
+<li>易於修改程式碼</li>
+</ol>
+<h2 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h2><p>scope 的作用就是將時常使用或是複雜的ORM語法組合成懶人包，這樣下次要用的時候只要把懶人包拿出來就可以了,舉例說明：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">class Topic &lt; ActiveRecord::Base</div><div class="line">    scope :recent, -&gt; &#123; order(&quot;created_at DESC&quot;) &#125; </div><div class="line">end</div></pre></td></tr></table></figure>
+<p>上面這段code我們定義了recent這個scope，以後我們只要下recent這個指令就等於下order(“created_at DESC”)是一樣的。如此一來就可以讓程式碼更為簡潔。</p>
+<h2 id="局部樣板-Partial-Template"><a href="#局部樣板-Partial-Template" class="headerlink" title="局部樣板(Partial Template)"></a>局部樣板(Partial Template)</h2><blockquote>
+<p>Partial 簡單說就是程式碼中的一小段，通常使用在 HTML 中讓 View的Code 可以更乾淨，將重複使用到的區塊切成獨立的 Partial，比方說頁首頁尾、表單、社群插件等等，讓任何一個頁面都可以讀取這段Partial而不用重複寫一次一模一樣的Code。</p>
+</blockquote>
+<p>利用局部樣板(Partial)機制，我們可以將重複的樣板獨立出一個單獨的檔案，來讓其他樣板共享引用。比如_form.html.erb可以在new.html.erb和edit.html.erb里面通过render来引用。</p>
+<h2 id="before-action方法"><a href="#before-action方法" class="headerlink" title="before_action方法"></a>before_action方法</h2><p>透過before_action，我們可以將Controller中重複的程式獨立出來。</p>
+<p>在events_controller.rb開頭內新增一行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">class EventsController &lt; ApplicationController</div><div class="line">  before_action :set_event, :only =&gt; [ :show, :edit, :update, :destroy]</div><div class="line">  # ....</div><div class="line">  # ... 下略</div></pre></td></tr></table></figure>
+<p>在下方private後面新增一個方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">def set_event</div><div class="line">  @event = Event.find(params[:id])</div><div class="line">end</div></pre></td></tr></table></figure>
+<p>刪除show、edit、update、destroy方法中的:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">@event = Event.find(params[:id])</div></pre></td></tr></table></figure>
+<h2 id="SASS-amp-SCSS"><a href="#SASS-amp-SCSS" class="headerlink" title="SASS &amp; SCSS"></a>SASS &amp; SCSS</h2><p>Haml 全名為 HTML Abstract Markup Language，它是提供網頁設計師撰寫 HTML 的另外一條途徑。</p>
+<p>Sass 原先是附屬在 Haml 裡面的一個副功能。這也是 sass-convert 這個指令必須要安裝 haml 這個 gem 才能使用的原因。</p>
+<p>Sass 的原理，是讓開發者可以透過「縮排」的方式去撰寫維護 CSS，同樣可以避免忘記關 TAG 而大爆炸的糗事。</p>
+<p>Sass 原先使用的縮排，對於網頁設計師來說，還是相當不直觀。而且實務上也不能直接將舊有的 CSS 直接貼進 Sass 中。其實還是存在一定的不方便度。也因此 Sass 進行了進化，改良了 syntax，而 Sass 3 後來就被稱為 SCSS ( Sassy CSS)。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Rails/" rel="tag">#Rails</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/25/0924面试题总结/" rel="next" title="0924面试题总结">
+                <i class="fa fa-chevron-left"></i> 0924面试题总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/26/Rails知识点整理/"
+           data-title="Rails知识点整理" data-url="http://yoursite.com/2016/09/26/Rails知识点整理/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="wangboguo" />
+          <p class="site-author-name" itemprop="name">wangboguo</p>
+          <p class="site-description motion-element" itemprop="description">再活一次的学习季</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful"><span class="nav-number">1.</span> <span class="nav-text">RESTful</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用Migration资料库迁移机制来定义资料库结构-Schema"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用Migration资料库迁移机制来定义资料库结构(Schema)?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用MVC有什么好处"><span class="nav-number">3.</span> <span class="nav-text">用MVC有什么好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#資料驗證-Validation"><span class="nav-number">4.</span> <span class="nav-text">資料驗證(Validation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版型-Layout"><span class="nav-number">5.</span> <span class="nav-text">版型(Layout)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Helder"><span class="nav-number">6.</span> <span class="nav-text">Helder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scope"><span class="nav-number">7.</span> <span class="nav-text">Scope</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部樣板-Partial-Template"><span class="nav-number">8.</span> <span class="nav-text">局部樣板(Partial Template)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#before-action方法"><span class="nav-number">9.</span> <span class="nav-text">before_action方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SASS-amp-SCSS"><span class="nav-number">10.</span> <span class="nav-text">SASS & SCSS</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wangboguo</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv">本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wangboguo"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
