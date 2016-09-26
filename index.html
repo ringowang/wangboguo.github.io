@@ -455,6 +455,7 @@
 <li>强大的路由系统</li>
 <li>对HTML代码和HTTP的严密控制力,MVC知道产生整洁、符合标准的标记的重要,它内置的HTML helper方法的输出完全符合标准</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">1. cookie数据存放在客户的浏览器上，session数据放在服务器上。</div><div class="line">2. cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗，考虑到安全应当使用session。</div><div class="line">3. session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用COOKIE。</div></pre></td></tr></table></figure>
 <h2 id="什么是Session"><a href="#什么是Session" class="headerlink" title="什么是Session"></a>什么是Session</h2><p>回答总结自Rails102：</p>
 <blockquote>
 <p>一位游客去游乐园买了票，要出去接个朋友，这时门口的工作人员会给游客的手上盖一个章，这个章就是Cookies，下次再来的时候就可以通过这个Cookies得知这个游客的讯息。由于Cookies属于没有加密的公开档案，所以最好不要存储敏感资料。</p>
