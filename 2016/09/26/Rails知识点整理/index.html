@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="爱学习的林檎君">
 <meta property="og:description" content="RESTful什麼是REST呢？表象化狀態轉變Representational State Transfer，簡稱REST.
 1. 網路上的所有事物都被將被抽象成資源 (resource)2. 每個資源對應一個唯一的 resource identifier3. 通過通用的介面 (generic connector interface) 對資源進行操作4. 對資源的各種操作不會改變 resource">
-<meta property="og:updated_time" content="2016-09-25T16:13:14.000Z">
+<meta property="og:updated_time" content="2016-09-26T01:33:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rails知识点整理">
 <meta name="twitter:description" content="RESTful什麼是REST呢？表象化狀態轉變Representational State Transfer，簡稱REST.
@@ -383,6 +383,10 @@
 <p>Sass 原先是附屬在 Haml 裡面的一個副功能。這也是 sass-convert 這個指令必須要安裝 haml 這個 gem 才能使用的原因。</p>
 <p>Sass 的原理，是讓開發者可以透過「縮排」的方式去撰寫維護 CSS，同樣可以避免忘記關 TAG 而大爆炸的糗事。</p>
 <p>Sass 原先使用的縮排，對於網頁設計師來說，還是相當不直觀。而且實務上也不能直接將舊有的 CSS 直接貼進 Sass 中。其實還是存在一定的不方便度。也因此 Sass 進行了進化，改良了 syntax，而 Sass 3 後來就被稱為 SCSS ( Sassy CSS)。</p>
+<h2 id="redirect-to-amp-render"><a href="#redirect-to-amp-render" class="headerlink" title="redirect_to &amp; render"></a>redirect_to &amp; render</h2><p>redirec_to通常使用在要讓使用者跳轉頁面的時候，會執行指定頁面的controller action。</p>
+<p>而render則是將指定頁面的樣板拿出來而已，並沒有執行controller。</p>
+<p>通常render的使用時機是讓使用者回到同一個頁面，例如表單填寫不完全時再重回表單填寫頁，這樣做的原因是render會傳模板給使用者，而這個模板在使用者第一次送出表單時就已經被存起來了，所以render同一個模板的時候就會保留剛剛使用者打的表單資料，不用全部重打。</p>
+<p>相反的若使用redirect_to跳轉到同一個表單頁面就會是一個全新的模板，不會有任何送出前填寫的資料，所以適合在跳轉到不同頁面時使用。</p>
 
       
     </div>
@@ -538,7 +542,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful"><span class="nav-number">1.</span> <span class="nav-text">RESTful</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用Migration资料库迁移机制来定义资料库结构-Schema"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用Migration资料库迁移机制来定义资料库结构(Schema)?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用MVC有什么好处"><span class="nav-number">3.</span> <span class="nav-text">用MVC有什么好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#資料驗證-Validation"><span class="nav-number">4.</span> <span class="nav-text">資料驗證(Validation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版型-Layout"><span class="nav-number">5.</span> <span class="nav-text">版型(Layout)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Helder"><span class="nav-number">6.</span> <span class="nav-text">Helder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scope"><span class="nav-number">7.</span> <span class="nav-text">Scope</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部樣板-Partial-Template"><span class="nav-number">8.</span> <span class="nav-text">局部樣板(Partial Template)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#before-action方法"><span class="nav-number">9.</span> <span class="nav-text">before_action方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SASS-amp-SCSS"><span class="nav-number">10.</span> <span class="nav-text">SASS & SCSS</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful"><span class="nav-number">1.</span> <span class="nav-text">RESTful</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用Migration资料库迁移机制来定义资料库结构-Schema"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用Migration资料库迁移机制来定义资料库结构(Schema)?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用MVC有什么好处"><span class="nav-number">3.</span> <span class="nav-text">用MVC有什么好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#資料驗證-Validation"><span class="nav-number">4.</span> <span class="nav-text">資料驗證(Validation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版型-Layout"><span class="nav-number">5.</span> <span class="nav-text">版型(Layout)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Helder"><span class="nav-number">6.</span> <span class="nav-text">Helder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scope"><span class="nav-number">7.</span> <span class="nav-text">Scope</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部樣板-Partial-Template"><span class="nav-number">8.</span> <span class="nav-text">局部樣板(Partial Template)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#before-action方法"><span class="nav-number">9.</span> <span class="nav-text">before_action方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SASS-amp-SCSS"><span class="nav-number">10.</span> <span class="nav-text">SASS & SCSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redirect-to-amp-render"><span class="nav-number">11.</span> <span class="nav-text">redirect_to & render</span></a></li></ol></div>
             
           </div>
         </section>
