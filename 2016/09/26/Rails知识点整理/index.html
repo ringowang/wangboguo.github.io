@@ -85,18 +85,24 @@
 
 
 <meta name="description" content="RESTful什麼是REST呢？表象化狀態轉變Representational State Transfer，簡稱REST.
-1. 網路上的所有事物都被將被抽象成資源 (resource)2. 每個資源對應一個唯一的 resource identifier3. 通過通用的介面 (generic connector interface) 對資源進行操作4. 對資源的各種操作不會改變 resource">
+
+1. 網路上的所有事物都被將被抽象成資源 (resource)2. 每個資源對應一個唯一的 resource identifier3. 通過通用的介面 (generic connector interface) 對資源進行操作4. 對資源的各種操作不會改變 resourc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rails知识点整理">
 <meta property="og:url" content="http://yoursite.com/2016/09/26/Rails知识点整理/index.html">
 <meta property="og:site_name" content="爱学习的林檎君">
 <meta property="og:description" content="RESTful什麼是REST呢？表象化狀態轉變Representational State Transfer，簡稱REST.
-1. 網路上的所有事物都被將被抽象成資源 (resource)2. 每個資源對應一個唯一的 resource identifier3. 通過通用的介面 (generic connector interface) 對資源進行操作4. 對資源的各種操作不會改變 resource">
-<meta property="og:updated_time" content="2016-09-26T01:33:58.000Z">
+
+1. 網路上的所有事物都被將被抽象成資源 (resource)2. 每個資源對應一個唯一的 resource identifier3. 通過通用的介面 (generic connector interface) 對資源進行操作4. 對資源的各種操作不會改變 resourc">
+<meta property="og:image" content="http://user-image.logdown.io/user/3653/blog/3707/post/168947/TPgJPeyuQkyNumT3bJGA_RESTful.jpg">
+<meta property="og:image" content="http://user-image.logdown.io/user/3653/blog/3707/post/168947/8TXHgAJeRrejzxa3cJCP_Ruby-on-Rails-process.jpg">
+<meta property="og:updated_time" content="2016-10-14T09:38:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rails知识点整理">
 <meta name="twitter:description" content="RESTful什麼是REST呢？表象化狀態轉變Representational State Transfer，簡稱REST.
-1. 網路上的所有事物都被將被抽象成資源 (resource)2. 每個資源對應一個唯一的 resource identifier3. 通過通用的介面 (generic connector interface) 對資源進行操作4. 對資源的各種操作不會改變 resource">
+
+1. 網路上的所有事物都被將被抽象成資源 (resource)2. 每個資源對應一個唯一的 resource identifier3. 通過通用的介面 (generic connector interface) 對資源進行操作4. 對資源的各種操作不會改變 resourc">
+<meta name="twitter:image" content="http://user-image.logdown.io/user/3653/blog/3707/post/168947/TPgJPeyuQkyNumT3bJGA_RESTful.jpg">
 
 
 
@@ -261,7 +267,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T01:05:49+09:00" content="2016-09-26">
+            <time itemprop="dateCreated" datetime="2016-09-26T01:05:49+08:00" content="2016-09-26">
               2016-09-26
             </time>
           </span>
@@ -321,6 +327,7 @@
 
       
         <h2 id="RESTful"><a href="#RESTful" class="headerlink" title="RESTful"></a>RESTful</h2><p>什麼是REST呢？表象化狀態轉變Representational State Transfer，簡稱REST.</p>
+<p><img src="http://user-image.logdown.io/user/3653/blog/3707/post/168947/TPgJPeyuQkyNumT3bJGA_RESTful.jpg" alt="RESTful"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">1. 網路上的所有事物都被將被抽象成資源 (resource)</div><div class="line">2. 每個資源對應一個唯一的 resource identifier</div><div class="line">3. 通過通用的介面 (generic connector interface) 對資源進行操作</div><div class="line">4. 對資源的各種操作不會改變 resource idetifier</div><div class="line">5. 所有的操作都是無態 (stateless) 的</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>REST有主要有兩個核心精神：1. 使用Resource來當做識別的資源，也就是使用一個URL網址來代表一個Resource 2. 同一個Resource則可以有不同的Representations格式變化。</p>
@@ -352,6 +359,15 @@
 <li>强大的路由系统</li>
 <li>对HTML代码和HTTP的严密控制力,MVC知道产生整洁、符合标准的标记的重要,它内置的HTML helper方法的输出完全符合标准</li>
 </ol>
+<p>sdlong关于MVC的一些观点：<br><br>Model: 資料庫相關<br>Views: 前端網頁呈現<br>Controllers: 流程控制與運作</p>
+<p>優點是:</p>
+<ol>
+<li>可以把整個專案(Project)拆分</li>
+<li>負責做前端的人只做 Views</li>
+<li>寫流程控制的專心寫 Controllers</li>
+<li>所有資料全部集中在 Models</li>
+</ol>
+<p><img src="http://user-image.logdown.io/user/3653/blog/3707/post/168947/8TXHgAJeRrejzxa3cJCP_Ruby-on-Rails-process.jpg" alt="MVC"></p>
 <h2 id="資料驗證-Validation"><a href="#資料驗證-Validation" class="headerlink" title="資料驗證(Validation)"></a>資料驗證(Validation)</h2><p>Model里面加入 validates_presence_of :name</p>
 <h2 id="版型-Layout"><a href="#版型-Layout" class="headerlink" title="版型(Layout)"></a>版型(Layout)</h2><p>Layout可以用來包裹樣板，讓不同樣板共用相同的HTML開頭和結尾部分。當Rails要顯示一個樣板給瀏覽器時，它會將樣板的HTML放到Layout的HTML之中。預設的Layout檔案是app/views/layouts/application.html.erb，<em>其中yield就是會被替換成樣板的地方</em>。所有的樣版預設都會套這個Layout。</p>
 <p>好處是可以將網站的版型固定，只在需要出現內容的地方用 yield 引進來就可以了。</p>
@@ -426,6 +442,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/10/25/Atom实用快捷键/" rel="prev" title="Atom实用快捷键">
+                Atom实用快捷键 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -496,7 +516,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -513,7 +533,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
