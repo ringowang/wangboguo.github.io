@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/26/工作环境搭建/index.html">
 <meta property="og:site_name" content="爱学习的林檎君">
 <meta property="og:description" content="1. SetupInstall Git, Ruby(using rvm or rbenv), RubyGems, Bundler, PostgreSQL, Redis, nodejs, npm, bower, webpack, webpack-dev-server, imagemagick, ghostscript)">
-<meta property="og:updated_time" content="2016-10-26T04:07:00.000Z">
+<meta property="og:updated_time" content="2016-10-26T04:44:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作环境搭建">
 <meta name="twitter:description" content="1. SetupInstall Git, Ruby(using rvm or rbenv), RubyGems, Bundler, PostgreSQL, Redis, nodejs, npm, bower, webpack, webpack-dev-server, imagemagick, ghostscript)">
@@ -361,7 +361,14 @@ $gem install libv8 -v &apos;3.16.14.13&apos;  -- --with-system-v8
 <p>问题4： sh: qmake: command not found</p>
 </blockquote>
 <p> 解决方案： 照着第二步教程搞好QT应该就没问题</p>
-</li>
+<blockquote>
+<p>问题5: 在tee_admin bundle i的时候，出现Make sure that <code>gem install capybara-webkit -v &#39;1.7.1&#39;</code> succeeds before bundling.<br> 然后gem install capybara-webkit -v ‘1.7.1’时有新问题：sh: qmake: command not found</p>
+</blockquote>
+<p> 解决方案： </p>
+<pre><code>在根目录打开bash_profile: $vi .bash_profile 或者 $atom .bash_profile
+添加一行: export $PATH=&quot;/Users/wangboguo/Qt5.5.1/5.5/clang_64/bin:$PATH&quot;;
+这样就能找到qmake了之后再在admin里面bundle i就没问题了
+</code></pre></li>
 </ol>
 <h3 id="3-2-npm-run-setup"><a href="#3-2-npm-run-setup" class="headerlink" title="3.2 npm run setup"></a>3.2 npm run setup</h3><p>install npm modules and also start webpack: npm run setup</p>
 <p>需要登上 <a href="http://sinopia.XXXXXX" target="_blank" rel="external">http://sinopia.XXXXXX</a> ，输入左上角两行代码。我们这边会给一个账号密码，在输入第二行代码时会要求输入。</p>
