@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="1. SetupInstall Git, Ruby(using rvm or rbenv), RubyGems, Bundler, PostgreSQL, Redis, nodejs, npm, bower, webpack, webpack-dev-server, imagemagick, ghostscript)">
+<meta name="description" content="SetupInstall Git, Ruby(using rvm or rbenv), RubyGems, Bundler, PostgreSQL, Redis, nodejs, npm, bower, webpack, webpack-dev-server, imagemagick, ghostscript)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="工作环境搭建">
 <meta property="og:url" content="http://yoursite.com/2016/10/26/工作环境搭建/index.html">
 <meta property="og:site_name" content="爱学习的林檎君">
-<meta property="og:description" content="1. SetupInstall Git, Ruby(using rvm or rbenv), RubyGems, Bundler, PostgreSQL, Redis, nodejs, npm, bower, webpack, webpack-dev-server, imagemagick, ghostscript)">
-<meta property="og:updated_time" content="2016-10-26T04:44:14.000Z">
+<meta property="og:description" content="SetupInstall Git, Ruby(using rvm or rbenv), RubyGems, Bundler, PostgreSQL, Redis, nodejs, npm, bower, webpack, webpack-dev-server, imagemagick, ghostscript)">
+<meta property="og:updated_time" content="2016-10-26T07:59:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作环境搭建">
-<meta name="twitter:description" content="1. SetupInstall Git, Ruby(using rvm or rbenv), RubyGems, Bundler, PostgreSQL, Redis, nodejs, npm, bower, webpack, webpack-dev-server, imagemagick, ghostscript)">
+<meta name="twitter:description" content="SetupInstall Git, Ruby(using rvm or rbenv), RubyGems, Bundler, PostgreSQL, Redis, nodejs, npm, bower, webpack, webpack-dev-server, imagemagick, ghostscript)">
 
 
 
@@ -298,7 +298,7 @@
       
 
       
-        <h2 id="1-Setup"><a href="#1-Setup" class="headerlink" title="1. Setup"></a>1. Setup</h2><p>Install Git, Ruby(using rvm or rbenv), RubyGems, Bundler, PostgreSQL, Redis, nodejs, npm, bower, webpack, webpack-dev-server, imagemagick, ghostscript)<br><a id="more"></a><br>tips:能用brew装的不要用其他方法。</p>
+        <h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p>Install Git, Ruby(using rvm or rbenv), RubyGems, Bundler, PostgreSQL, Redis, nodejs, npm, bower, webpack, webpack-dev-server, imagemagick, ghostscript)<br><a id="more"></a><br>tips:能用brew装的不要用其他方法。</p>
 <ul>
 <li>Git应该自己装了的吧</li>
 <li>Ruby &amp; RubyGems &amp; Bundler : 参考 <a href="https://ruby-china.org/wiki/install_ruby_guide" target="_blank" rel="external">https://ruby-china.org/wiki/install_ruby_guide</a></li>
@@ -314,7 +314,7 @@
 <li>ImageMagick: $brew install ImageMagick</li>
 <li>ghostscript: $ brew install ghostscript</li>
 </ul>
-<h2 id="2-Test"><a href="#2-Test" class="headerlink" title="2. Test"></a>2. Test</h2><ul>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><ul>
 <li><p>Install Qt (note “capybara-webkit does not support Qt versions greater than 5.5”)：</p>
 <ul>
 <li><p>OS X 10.11 or earlier vision $brew tap homebrew/versions,$brew install qt55, then $brew link –force qt55</p>
@@ -330,49 +330,37 @@
 <li><p>$sh scripts/test.sh</p>
 </li>
 </ul>
-<h2 id="3-Install-dependency"><a href="#3-Install-dependency" class="headerlink" title="3.Install dependency"></a>3.Install dependency</h2><h3 id="3-1-bundle-install"><a href="#3-1-bundle-install" class="headerlink" title="3.1 bundle install"></a>3.1 bundle install</h3><ol>
+<h2 id="Install-dependency"><a href="#Install-dependency" class="headerlink" title="Install dependency"></a>Install dependency</h2><h3 id="bundle-install"><a href="#bundle-install" class="headerlink" title="bundle install"></a>bundle install</h3><ol>
 <li><p>换成rubychina的源：</p>
 <pre><code>$gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/ 
-</code></pre><ol>
+</code></pre></li>
 <li><p>install ruby gems: bundle install</p>
-<blockquote>
-<p>问题1：The path <code>/Users/wangboguo/Work/tee_web/tee_core</code> does not exist.</p>
-</blockquote>
-<p>解决方案：</p>
-<p>   $ln -s ~/Work/tee_core/ ~/Work/tee_web（需要换成自己的路径我的Work是在根目录下）</p>
-<p>坑：必须要用绝对链接，这样ln -s ./tee_core ./tee_web 不行</p>
-<blockquote>
-<p>问题2:Make sure that <code>gem install libv8 -v &#39;3.16.14.13&#39;</code> succeeds before bundling.</p>
-</blockquote>
-</li>
-</ol>
+<p> 问题1：The path <code>/Users/wangboguo/Work/tee_web/tee_core</code> does not exist.</p>
+<p> 解决方案：</p>
+<pre><code>$ln -s ~/Work/tee_core/ ~/Work/tee\_web（需要换成自己的路径我的Work是在根目录下）
+</code></pre><p> 坑：必须要用绝对链接，这样ln -s ./tee_core ./tee_web 不行</p>
+<p> 问题2:Make sure that <code>gem install libv8 -v &#39;3.16.14.13&#39;</code> succeeds before bundling.</p>
 <p>解决: </p>
 <pre><code>$gem install libv8 -v &apos;3.16.14.13&apos; -- --with-system-v8 
 </code></pre><p>这一步可能又出现问题，解决方案如下：</p>
 <pre><code>   $gem uninstall libv8 
 $gem install therubyracer -v &apos;0.12.2&apos; 
 $gem install libv8 -v &apos;3.16.14.13&apos;  -- --with-system-v8
-</code></pre><blockquote>
-<p>问题3：Make sure that <code>gem install capybara-webkit -v &#39;1.11.1&#39;</code> succeeds before bundling.</p>
-</blockquote>
+</code></pre><p> 问题3：Make sure that <code>gem install capybara-webkit -v &#39;1.11.1&#39;</code> succeeds before bundling.</p>
 <p> 解决方案：</p>
 <pre><code>$gem install capybara-webkit -v &apos;1.11.1&apos;
-</code></pre><blockquote>
-<p>问题4： sh: qmake: command not found</p>
-</blockquote>
+</code></pre><p> 问题4： sh: qmake: command not found</p>
 <p> 解决方案： 照着第二步教程搞好QT应该就没问题</p>
-<blockquote>
-<p>问题5: 在tee_admin bundle i的时候，出现Make sure that <code>gem install capybara-webkit -v &#39;1.7.1&#39;</code> succeeds before bundling.<br> 然后gem install capybara-webkit -v ‘1.7.1’时有新问题：sh: qmake: command not found</p>
-</blockquote>
+<p> 问题5: 在tee_admin bundle i的时候，出现Make sure that <code>gem install capybara-webkit -v &#39;1.7.1&#39;</code> succeeds before bundling.<br> 然后gem install capybara-webkit -v ‘1.7.1’时有新问题：sh: qmake: command not found</p>
 <p> 解决方案： </p>
 <pre><code>在根目录打开bash_profile: $vi .bash_profile 或者 $atom .bash_profile
 添加一行: export $PATH=&quot;/Users/wangboguo/Qt5.5.1/5.5/clang_64/bin:$PATH&quot;;
 这样就能找到qmake了之后再在admin里面bundle i就没问题了
 </code></pre></li>
 </ol>
-<h3 id="3-2-npm-run-setup"><a href="#3-2-npm-run-setup" class="headerlink" title="3.2 npm run setup"></a>3.2 npm run setup</h3><p>install npm modules and also start webpack: npm run setup</p>
+<h3 id="npm-run-setup"><a href="#npm-run-setup" class="headerlink" title="npm run setup"></a>npm run setup</h3><p>install npm modules and also start webpack: npm run setup</p>
 <p>需要登上 <a href="http://sinopia.XXXXXX" target="_blank" rel="external">http://sinopia.XXXXXX</a> ，输入左上角两行代码。我们这边会给一个账号密码，在输入第二行代码时会要求输入。</p>
-<h2 id="4-Prepare-Database-see-project-dir-config-database-yml"><a href="#4-Prepare-Database-see-project-dir-config-database-yml" class="headerlink" title="4. Prepare Database (see project_dir/config/database.yml)"></a>4. Prepare Database (see project_dir/config/database.yml)</h2><ul>
+<h2 id="Prepare-Database-see-project-dir-config-database-yml"><a href="#Prepare-Database-see-project-dir-config-database-yml" class="headerlink" title="Prepare Database (see project_dir/config/database.yml)"></a>Prepare Database (see project_dir/config/database.yml)</h2><ul>
 <li><p>create database user tee and tee_tester</p>
 <ul>
 <li>下载pgadmin3: <a href="https://www.pgadmin.org/download/macos.php" target="_blank" rel="external">https://www.pgadmin.org/download/macos.php</a></li>
@@ -394,7 +382,7 @@ $gem install libv8 -v &apos;3.16.14.13&apos;  -- --with-system-v8
 <li><p>$RAILS_ENV=test rake db:seed</p>
 </li>
 </ul>
-<h2 id="5-RUN"><a href="#5-RUN" class="headerlink" title="5. RUN"></a>5. RUN</h2><pre><code>$foreman start
+<h2 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h2><pre><code>$foreman start
 </code></pre>
       
     </div>
@@ -550,7 +538,7 @@ $gem install libv8 -v &apos;3.16.14.13&apos;  -- --with-system-v8
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Setup"><span class="nav-number">1.</span> <span class="nav-text">1. Setup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Test"><span class="nav-number">2.</span> <span class="nav-text">2. Test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Install-dependency"><span class="nav-number">3.</span> <span class="nav-text">3.Install dependency</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-bundle-install"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 bundle install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-npm-run-setup"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 npm run setup</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Prepare-Database-see-project-dir-config-database-yml"><span class="nav-number">4.</span> <span class="nav-text">4. Prepare Database (see project_dir/config/database.yml)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-RUN"><span class="nav-number">5.</span> <span class="nav-text">5. RUN</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup"><span class="nav-number">1.</span> <span class="nav-text">Setup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test"><span class="nav-number">2.</span> <span class="nav-text">Test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-dependency"><span class="nav-number">3.</span> <span class="nav-text">Install dependency</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bundle-install"><span class="nav-number">3.1.</span> <span class="nav-text">bundle install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-run-setup"><span class="nav-number">3.2.</span> <span class="nav-text">npm run setup</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prepare-Database-see-project-dir-config-database-yml"><span class="nav-number">4.</span> <span class="nav-text">Prepare Database (see project_dir/config/database.yml)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RUN"><span class="nav-number">5.</span> <span class="nav-text">RUN</span></a></li></ol></div>
             
           </div>
         </section>
