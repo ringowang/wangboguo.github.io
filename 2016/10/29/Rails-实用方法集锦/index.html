@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Rails," />
 
 
 
@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="再活一次的学习季">
-<meta property="og:type" content="website">
-<meta property="og:title" content="爱学习的林檎君">
-<meta property="og:url" content="http://yoursite.com/categories/面试/index.html">
+<meta name="description" content="inspect  它的作用是返回被调用对象的字符串字面量表示形式    
+  puts &amp;quot;It worked!&amp;quot;, &amp;quot;It worked!&amp;quot;.inspectIt worked!&amp;quot;It worked!&amp;quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rails 实用方法收集">
+<meta property="og:url" content="http://yoursite.com/2016/10/29/Rails-实用方法集锦/index.html">
 <meta property="og:site_name" content="爱学习的林檎君">
-<meta property="og:description" content="再活一次的学习季">
+<meta property="og:description" content="inspect  它的作用是返回被调用对象的字符串字面量表示形式    
+  puts &amp;quot;It worked!&amp;quot;, &amp;quot;It worked!&amp;quot;.inspectIt worked!&amp;quot;It worked!&amp;quot;">
+<meta property="og:updated_time" content="2016-11-03T06:48:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爱学习的林檎君">
-<meta name="twitter:description" content="再活一次的学习季">
+<meta name="twitter:title" content="Rails 实用方法收集">
+<meta name="twitter:description" content="inspect  它的作用是返回被调用对象的字符串字面量表示形式    
+  puts &amp;quot;It worked!&amp;quot;, &amp;quot;It worked!&amp;quot;.inspectIt worked!&amp;quot;It worked!&amp;quot;">
 
 
 
@@ -113,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/面试/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/29/Rails-实用方法集锦/"/>
 
-  <title> 分类: 面试 | 爱学习的林檎君 </title>
+  <title> Rails 实用方法收集 | 爱学习的林檎君 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,47 +228,148 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        面试
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Rails 实用方法收集
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-29T11:46:28+08:00" content="2016-10-29">
+              2016-10-29
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/29/Rails-实用方法集锦/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/29/Rails-实用方法集锦/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">本文阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="inspect"><a href="#inspect" class="headerlink" title="inspect"></a>inspect</h2><p>  它的作用是返回被调用对象的字符串字面量表示形式    </p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">puts &quot;It worked!&quot;, &quot;It worked!&quot;.inspect</div><div class="line"></div><div class="line">It worked!</div><div class="line">&quot;It worked!&quot;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="pluralize"><a href="#pluralize" class="headerlink" title="pluralize"></a>pluralize</h2><p>  还有一个比较新的方法是 pluralize，pluralize 是 Rails 提供的帮助方法，接受一个数字和字符串作为参数。如果数字比 1 大，字符串会被转换成复数形式。在控制台中可以通过 helper 对象调用:</p>
+<pre><code>&gt;&gt;helper.pluralize(1, &quot;error&quot;)
+=&gt; &quot;1 error&quot;
+&gt;&gt; helper.pluralize(5, &quot;error&quot;)
+=&gt; &quot;5 errors&quot;
+</code></pre><p>  如上所示，pluralize 方法的第一个参数是整数，返回值是这个数字和第二个参数组合在一起后，正确的单复数形式。pluralize 方法由功能强大的转置器（inflector）实现，转置器知道怎么处理大多数单词的单复数变换，甚至很多不规则的变换方式:</p>
+<pre><code>&gt;&gt; helper.pluralize(2, &quot;woman&quot;)
+=&gt; &quot;2 women&quot;
+</code></pre>
+      
+    </div>
 
-      <h1 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/09/25/0924面试题总结/" itemprop="url">
-              
-                <span itemprop="name">0924面试题总结</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-25T13:24:18+08:00"
-              content="2016-09-25" >
-          09-25
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Rails/" rel="tag">#Rails</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/25/Atom实用快捷键/" rel="next" title="Atom实用快捷键">
+                <i class="fa fa-chevron-left"></i> Atom实用快捷键
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/03/元学习课高频小套路整理版/" rel="prev" title="元学习课高频小套路整理版">
+                元学习课高频小套路整理版 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -272,6 +377,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/29/Rails-实用方法集锦/"
+           data-title="Rails 实用方法收集" data-url="http://yoursite.com/2016/10/29/Rails-实用方法集锦/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -291,8 +404,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -342,6 +464,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#inspect"><span class="nav-number">1.</span> <span class="nav-text">inspect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pluralize"><span class="nav-number">2.</span> <span class="nav-text">pluralize</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -461,6 +594,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
